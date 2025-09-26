@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: "Vazir", sans-serif;
+  background: #f5f6fa;
+  color: #2c3e50;
+}
+
+.dashboard-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #34495e;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #1abc9c;
+}
+
+header nav a.danger {
+  color: #e74c3c;
+}
+
+main {
+  margin-top: 20px;
+}
+
+.welcome-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: #1abc9c;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #16a085;
+}
+
+.card.danger {
+  border: 1px solid #e74c3c;
+}
+
+.btn.danger {
+  background: #e74c3c;
+}
+
+.btn.danger:hover {
+  background: #c0392b;
+}

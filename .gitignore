@@ -1,0 +1,8 @@
+
+__pycache__/
+.vscode/
+.git/
+.venv/
+.env
+config.py
+venv
