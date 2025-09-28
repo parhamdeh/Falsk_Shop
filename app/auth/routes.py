@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, session
+from flask import Blueprint, render_template, redirect, url_for, flash, session, request
 import time
 from app.auth.forms import LoginForm, SignUpForm
 from utils import db
+import random
 
-# تغییر مهم: اضافه کردن url_prefix
 auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route("/")
@@ -35,7 +35,21 @@ def login():
 @auth_bp.route("/signup", methods=["GET", "POST"])
 def signup():
     form = SignUpForm()
+
+    # تولید کپچا هنگام GET
+    if request.method == "GET":
+        a, b = random.randint(1, 9), random.randint(1, 9)
+        session["captcha_answer"] = str(a + b)
+        session["captcha_question"] = f"{a} + {b} = ؟"
+
     if form.validate_on_submit():
+        user_captcha = form.captcha.data.strip()
+        expected = session.get("captcha_answer")
+
+        if user_captcha != expected:
+            flash("کپچا اشتباه است!", "danger")
+            return redirect(url_for("auth.signup"))
+
         username = form.username.data
         email = form.email.data
         password = form.password.data
@@ -49,11 +63,11 @@ def signup():
         elif result == 2:
             flash("این نام کاربری قبلاً وجود دارد!", "danger")
         elif result == 3:
-            flash("شما قبلا با این ایمیل اکانت ساخته اید!", "danger")
+            flash("شما قبلا با این ایمیل اکانت ساخته‌اید!", "danger")
         else:
             flash("خطای ناشناخته", "danger")
 
-    return render_template("signup.html", form=form)
+    return render_template("signup.html", form=form, captcha_question=session.get("captcha_question"))
 
 @auth_bp.route("/logout")
 def logout():
@@ -64,9 +78,9 @@ def logout():
 @auth_bp.route("/dashboard")
 def dashboard():
     if "username" in session and session["logged_in"]:
-        return render_template("dashboard.html")
+        return render_template("dashboard.html", username=session["username"])
     else:
-        flash("لطفا ابتدا وارد شوید!", "danger")
+        flash("لطفاً ابتدا وارد شوید!", "danger")
         return redirect(url_for("auth.login"))
 
 @auth_bp.route("/cart")

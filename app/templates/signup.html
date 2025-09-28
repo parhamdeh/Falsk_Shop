@@ -43,6 +43,20 @@
                     <span class="error">{{ error }}</span>
                 {% endfor %}
             </div>
+            <div class="form-group">
+                {{ form.confirm.label }}
+                {{ form.confirm(size=32) }}
+                {% for error in form.confirm.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+            <label for="captcha">پاسخ صحیح را واردکنید <strong>{{ captcha_question }}</strong></label>
+            {{ form.captcha(size=10) }}
+            {% for error in form.captcha.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
             
             <div class="form-group">
                 {{ form.submit(class="btn") }}
