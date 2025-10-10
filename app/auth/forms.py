@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, FileField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from flask import session
 import random
@@ -19,3 +19,8 @@ class SignUpForm(FlaskForm):
     
     captcha = StringField("کپچا", validators=[DataRequired()])
     submit = SubmitField("ok")
+
+
+class UploadProfilePictureForm(FlaskForm):
+    profile_picture = FileField('عکس پروفایل', validators=[DataRequired()])
+    submit = SubmitField('آپلود')

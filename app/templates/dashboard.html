@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <title>داشبورد کاربری</title>
@@ -8,15 +8,31 @@
 <body>
   <div class="dashboard-container">
     <header>
-      <h1>سلام {{ session['username'] }} 👋</h1>
-      <nav>
-        <a href="{{ url_for('auth.dashboard') }}">خانه</a>
-        <a href="{{ url_for('auth.cart') }}">🛒 سبد خرید</a>
-        <a href="{{ url_for('auth.change_credentials') }}">🔑 تغییر مشخصات</a>
-        <a href="{{ url_for('auth.charge') }}">💰 موجودی</a>
-        <a href="{{ url_for('auth.logout') }}">🚪 خروج</a>
-        <a href="{{ url_for('auth.delete_account') }}" class="danger">❌ حذف اکانت</a>
-      </nav>
+      <div class="header-content">
+        <!-- لوگو در سمت راست -->
+        <div class="logo-container">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" alt="لوگو سایت" class="site-logo">
+        </div>
+        
+        <!-- منو در وسط -->
+        <nav class="main-nav">
+          <a href="{{ url_for('auth.start') }}">🏠 صفحه اصلی</a>
+          <a href="{{ url_for('auth.cart') }}">🛒 محصولات</a>
+        </nav>
+        
+        <!-- نام کاربر در سمت چپ -->
+        <div class="user-info">
+          <div class="profile-picture-container">
+            {% if session['profile_picture'] %}
+              <img src="{{ url_for('static', filename='profile_pics/' + session['profile_picture']) }}" alt="عکس پروفایل" class="profile-picture">
+            {% else %}
+              <img src="{{ url_for('static', filename='images/default_profile.png') }}" alt="عکس پیشفرض" class="profile-picture">
+            {% endif %}
+          </div>
+          <h1>{{ session['username'] }}</h1>
+          <a href="{{ url_for('auth.upload_profile_picture') }}" class="btn upload-btn">آپلود عکس</a>
+        </div>
+      </div>
     </header>
 
     <main>
