@@ -17,7 +17,7 @@ body {
 /* ======================= */
 /* === کانتینر فرم ====== */
 /* ======================= */
-.signup-container {
+.container {
     background: #1e1e1e; /* فرم تیره */
     padding: 40px 50px;
     border-radius: 20px;  /* گردتر */
@@ -28,11 +28,11 @@ body {
     transition: transform 0.3s;
 }
 
-.signup-container:hover {
-    transform: translateY(-5px);
+.container:hover {
+    transform: translateY(-5px); /* کمی lift هنگام hover */
 }
 
-.signup-container h2 {
+.container h2 {
     margin-bottom: 30px;
     color: #8bc34a;
     font-weight: 700;
@@ -68,7 +68,7 @@ body {
 
 .form-group input:focus {
     border-color: #8bc34a;
-    box-shadow: 0 0 8px #8bc34a inset;
+    box-shadow: 0 0 8px #8bc34a inset; /* glow سبز */
     outline: none;
 }
 
@@ -79,7 +79,7 @@ body {
     width: 100%;
     padding: 14px;
     border: none;
-    border-radius: 15px;
+    border-radius: 15px; /* گرد */
     background: linear-gradient(45deg, #8bc34a, #aed581);
     color: #121212;
     font-weight: 700;
@@ -145,7 +145,7 @@ a:hover {
 /* === ریسپانسیو ======== */
 /* ======================= */
 @media (max-width: 480px) {
-    .signup-container {
+    .container {
         padding: 30px 20px;
     }
     

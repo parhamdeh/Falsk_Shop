@@ -1,15 +1,12 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, session, request
 import time
 import os
-from app.auth.forms import LoginForm, SignUpForm, UploadProfilePictureForm
+from app.forms.auth_forms import LoginForm, SignUpForm, UploadProfilePictureForm
 from utils import db
 import random
 
 auth_bp = Blueprint('auth', __name__)
 
-@auth_bp.route("/")
-def start():
-    return render_template("index.html")
 
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():
@@ -74,7 +71,7 @@ def signup():
 def logout():
     session.clear()
     flash("شما با موفقیت خارج شدید!", "success")
-    return redirect(url_for("auth.start"))
+    return redirect(url_for("main.home"))
 
 @auth_bp.route("/dashboard")
 def dashboard():

@@ -1,77 +1,203 @@
+/* ======================= */
+/* === تنظیمات کلی ====== */
+/* ======================= */
 body {
-    background-color: #f0f0f0;
-    font-family: Tahoma, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-    background: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    text-align: center;
-    width: 300px;
+/* ======================= */
+/* === Navbar / Header === */
+.navbar {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: all 0.3s;
 }
 
-.logo {
-    width: 100px;       
-    height: 100px;      
-    border-radius: 50%; 
-    object-fit: cover;  
-    margin-bottom: 15px;
+.navbar:hover {
+    box-shadow: 0 8px 25px rgba(139,195,74,0.5);
 }
 
-.form-group {
-    margin: 10px 0;
+/* لوگو گرد */
+.navbar-brand img {
+    border-radius: 50%; /* گرد */
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    transition: transform 0.3s;
 }
 
-input {
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+/* لینک‌ها */
+.nav-link {
+    color: #8bc34a !important;
+    margin-left: 15px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-link:hover {
+    color: #c5e1a5 !important;
+    text-shadow: 0 0 5px #8bc34a;
+}
+
+/* دکمه‌ها */
+.navbar .btn {
+    background: linear-gradient(45deg, #8bc34a, #aed581);
+    color: #121212;
+    margin-left: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(139,195,74,0.5);
+    transition: all 0.3s;
+}
+
+.navbar .btn:hover {
+    background: linear-gradient(45deg, #aed581, #c5e1a5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139,195,74,0.6);
+}
+
+/* ======================= */
+/* === اسلایدر ========= */
+.carousel-item img {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(139,195,74,0.3);
+    transition: transform 0.3s;
 }
 
-.btn {
-    background: darkblue;
-    color: white;
+.carousel-item img:hover {
+    transform: scale(1.02);
+}
+
+.carousel-caption {
+    bottom: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(139,195,74,0.5);
+}
+
+.carousel-caption h5 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #8bc34a;
+}
+
+.carousel-caption p {
+    color: #c5e1a5;
+    font-size: 1rem;
+}
+
+/* ======================= */
+/* === محصولات ========= */
+.section-title {
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+    font-size: 1.5rem;
+    color: #8bc34a;
+    text-shadow: 0 0 5px #8bc34a;
+}
+
+.product-card {
     border: none;
-    padding: 10px;
-    border-radius: 3px;
-    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    color: #e0e0e0;
+    overflow: hidden;
 }
 
-.btn:hover {
-    background: navy;
+.product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(139, 195, 74, 0.6);
 }
 
-.error {
-    color: red;
-    font-size: 12px;
+.product-card img {
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: transform 0.3s;
 }
 
-.flash {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 6px;
+.product-card img:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
     text-align: center;
-    font-size: 14px;
+    padding: 12px;
 }
 
-.flash.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+.card-body h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #aed581;
 }
 
-.flash.danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+.card-body p {
+    color: #c5e1a5;
+    font-weight: 500;
 }
 
+/* ======================= */
+/* === Footer =========== */
+footer {
+    background-color: #1b1b1b;
+    color: #8bc34a;
+    font-size: 0.9rem;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 2px solid #8bc34a;
+    box-shadow: 0 -5px 20px rgba(139,195,74,0.4);
+}
+
+footer a {
+    color: #aed581;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: all 0.3s;
+}
+
+footer a:hover {
+    color: #c5e1a5;
+    text-shadow: 0 0 5px #8bc34a;
+}
+
+/* ======================= */
+/* === ریسپانسیو ======== */
+@media (max-width: 992px) {
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item img {
+        height: 200px;
+    }
+
+    .card-body h6 {
+        font-size: 0.9rem;
+    }
+
+    .card-body p {
+        font-size: 0.85rem;
+    }
+}

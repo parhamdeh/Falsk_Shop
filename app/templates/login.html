@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ورود</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
     <div class="container">
@@ -39,7 +39,7 @@
         </form>
         
         <a href="{{ url_for('auth.signup') }}">حساب کاربری ندارید؟ ثبت‌نام کنید</a>
-        <a href="{{ url_for('auth.start') }}">بازگشت به صفحه اصلی</a>
+        <a href="{{ url_for('main.home') }}">بازگشت به صفحه اصلی</a>
     </div>
 </body>
 </html>
